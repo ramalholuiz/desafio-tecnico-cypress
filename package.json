@@ -1,0 +1,17 @@
+{
+  "name": "desafio-tecnico-cypress",
+  "version": "1.0.0",
+  "description": "Desafio Técnico Cypress - NTTDATA",
+  "main": "cypress.config.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  },
+  "keywords": [],
+  "author": "Luiz <luizhe.ramalho@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^14.3.1",
+    "cypress-plugin-api": "^2.6.1"
+  }
+}
