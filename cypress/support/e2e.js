@@ -1,3 +1,3 @@
 
-import './guicommands'
-import './apicommands'
+import './gui_commands'
+import './api_commands'
