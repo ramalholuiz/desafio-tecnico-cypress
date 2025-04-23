@@ -9,9 +9,9 @@ Cypress.Commands.add('guiLogin', (
   cy.url().should('include', '/home')
 })
 
-Cypress.Commands.add('AddProduct', (productName, productPrice, productDescription, productQuantity) => {
+Cypress.Commands.add('addProduct', (productName, productPrice, productDescription, productQuantity) => {
   cy.fixture('mouse.jpg').as('imageFile')
-  
+
   cy.get("[data-testid='nome']").type(productName)
   cy.get("[data-testid='preco']").type(productPrice)
   cy.get("[data-testid='descricao']").type(productDescription)
@@ -20,4 +20,16 @@ Cypress.Commands.add('AddProduct', (productName, productPrice, productDescriptio
     expect(input[0].files[0].name).to.eq('mouse.jpg')
   })
   cy.get("[data-testid='cadastarProdutos']").click()
+})
+
+Cypress.Commands.add('addUser', (userName, userEmail, userPassword, admin = false) => {
+  cy.get("[data-testid='nome']").type(userName)
+  cy.get("[data-testid='email']").type(userEmail)
+  cy.get("[data-testid='password']").type(userPassword)
+  
+  if (admin) { // Pass true = admin, or false = regular user
+    cy.get("[data-testid='checkbox']").check()
+  }
+  
+  cy.get("[data-testid='cadastrarUsuario']").click()
 })

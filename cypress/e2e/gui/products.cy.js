@@ -16,7 +16,7 @@ describe('Products', () => {
 
     cy.get("[data-testid='cadastrarProdutos']").click()
     cy.contains('h1', 'Cadastro de Produtos').should('be.visible')
-    cy.AddProduct(productName, '30', 'Mouse bluetooth preto', '1')
+    cy.addProduct(productName, '30', 'Mouse bluetooth preto', '1')
     cy.url().should('include', '/listarprodutos')
   })
 })
