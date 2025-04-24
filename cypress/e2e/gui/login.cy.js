@@ -1,4 +1,5 @@
-// npx cypress run --spec "cypress/e2e/gui/login.cy.js"
+/// <reference types="Cypress" />
+
 describe('login', () => {
   it('sucessfully with valid credentials', () => {
     const email = Cypress.env('user_email')

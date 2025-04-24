@@ -1,4 +1,4 @@
-// npx cypress run --spec "cypress/e2e/gui/users.cy.js"
+/// <reference types="Cypress" />
 import { faker } from '@faker-js/faker'
 
 describe('Users', () => {
