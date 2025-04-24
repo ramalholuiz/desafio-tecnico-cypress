@@ -40,4 +40,21 @@ describe('API - Products', () => {
         expect(res.body.message).to.eq('Cadastro realizado com sucesso')
       })
     })
+
+    it('should fail to create a product without a token', () => {
+      cy.request({
+        method: 'POST',
+        url: 'https://serverest.dev/produtos',
+        failOnStatusCode: false,
+        body: {
+          nome: 'produto invalido',
+          preco: 50,
+          descricao: 'produto sem descricao',
+          quantidade: 2
+        }
+      }).then((res) => {
+          expect(res.status).to.eq(401)
+          expect(res.body.message).to.include('Token de acesso ausente')
+      })
+    })
 })
