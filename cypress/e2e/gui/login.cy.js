@@ -1,4 +1,4 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 describe('login', () => {
   it('sucessfully with valid credentials', () => {

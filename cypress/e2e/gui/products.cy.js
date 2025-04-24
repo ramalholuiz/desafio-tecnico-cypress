@@ -1,4 +1,4 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 import { faker } from '@faker-js/faker'
 
 describe('Products', () => {

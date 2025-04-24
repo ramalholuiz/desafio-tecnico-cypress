@@ -12,7 +12,6 @@
   "license": "MIT",
   "devDependencies": {
     "@faker-js/faker": "^9.7.0",
-    "cypress": "^14.3.1",
-    "cypress-plugin-api": "^2.6.1"
+    "cypress": "^14.3.1"
   }
 }

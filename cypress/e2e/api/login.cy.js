@@ -1,4 +1,4 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 describe('API Login', () => {
   it('should login with valid credentials', () => {
