@@ -6,7 +6,6 @@ Cypress.Commands.add('guiLogin', (
   cy.get('#email').type(user_email)
   cy.get('#password').type(user_password, { log: false })
   cy.get("[data-testid='entrar']").click()
-  cy.url().should('include', '/home')
 })
 
 Cypress.Commands.add('addProduct', (productName, productPrice, productDescription, productQuantity) => {

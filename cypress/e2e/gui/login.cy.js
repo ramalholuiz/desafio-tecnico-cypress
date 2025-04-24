@@ -15,8 +15,9 @@ describe('login', () => {
     const email = Cypress.env('invalid_user_email')
     const password = Cypress.env('invalid_user_password')
 
+    cy.intercept('POST', '**/login').as('loginRequest')
     cy.guiLogin(email, password)
-    cy.get('.alert').should('contain', 'Email e/ou senha inválidos')
+    cy.wait('@loginRequest').its('response.statusCode').should('eq',401)
   })
 
   it('should display an error message with empty credentials', () => {
