@@ -2,6 +2,7 @@
 
 describe('API - Users', () => {
   let uniqueEmail = `user${Date.now()}@qa.com`
+  let userId = ''
 
   it('should create a new user successfully', () => {
     cy.request('POST', 'https://serverest.dev/usuarios', {
@@ -13,6 +14,8 @@ describe('API - Users', () => {
       expect(res.status).to.eq(201)
       expect(res.body.message).to.eq('Cadastro realizado com sucesso')
       expect(res.body).to.have.property('_id')
+
+      userId = res.body._id
     })
   })
 
@@ -38,6 +41,16 @@ describe('API - Users', () => {
       expect(res.status).to.eq(200)
       expect(res.body).to.have.property('quantidade')
       expect(res.body.usuarios).to.be.an('array')
+    })
+  })
+
+  it('should delete the user using the saved ID', () => {
+    cy.request({
+      method: 'DELETE',
+      url: `https://serverest.dev/usuarios/${userId}`
+    }).then((res) => {
+      expect(res.status).to.eq(200)
+      expect(res.body.message).to.include('Registro excluído com sucesso')
     })
   })
 })
